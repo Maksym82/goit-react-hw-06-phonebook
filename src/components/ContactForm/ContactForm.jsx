@@ -1,8 +1,6 @@
-import React, { useState } from 'react';
-import { Form, Label, Input, Button } from './ContactForm.styled';
+import { Form, FormLabel, FormInput, FormButton } from './ContactForm.styled';
+import { useDispatch, useSelector } from 'react-redux';
 
-import { nanoid} from 'nanoid';
-import PropTypes from 'prop-types';
 
 
 const ContactForm = ({ onSubmit }) => {
