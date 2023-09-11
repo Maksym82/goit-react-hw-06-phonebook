@@ -1,36 +1,46 @@
-import React from 'react';
-import { List, Item, Button, } from './ContactList.styled'
+import { useDispatch, useSelector } from 'react-redux';
+import { getContacts, getFilter } from 'redux/selectors';
+import { deleteContact } from 'redux/contactsSlice';
+import { 
+  ContactListStyled,
+  ContactItem,
+  ContactData,
+  ButtonDelete } from './ContactList.styled';
 
-import PropTypes from 'prop-types';
+
+  export function ContactList() {
+    const contacts = useSelector(getContacts);
+    const filter = useSelector(getFilter);
+    const dispatch = useDispatch();
+
+    const getFilterContact = () => {
+      const normalizedFilter = filter.toLowerCase().trim();
+      return contacts.filter(({ name }) =>
+        name.toLowerCase().includes(normalizedFilter)
+      );
+    };
+
+    const visibleContacts = getFilterContact();
+
+    return (
+      <ContactListStyled>
+        {visibleContacts.map(({ id, name, number }) => (
+          <ContactItem key={id}>
+            <ContactData>
+              {name}: <span>{number}</span>
+            </ContactData>
+            <ButtonDelete
+              type='button'
+              onClick={() => dispatch(deleteContact(id))}
+            >
+              Delete 
+            </ButtonDelete>
+          </ContactItem>
+        ))}
+      </ContactListStyled>
+    );
+  }
 
 
-export const  ContactList = ({ contacts, onDeleteContact }) => (
-  <List>
-    {contacts.map(contact => (
-      <Item key={contact.id}>
-        {contact.name + ' : ' + contact.number}
-        {
-          <Button
-            type="button"
-            name="delete"
-            onClick={() => onDeleteContact(contact.id)}
-          >
-            delete
-          </Button>
-        }
-      </Item>
-    ))}
-  </List>
-);
 
-ContactList.propTypes = {
-  contacts: PropTypes.arrayOf(
-    PropTypes.exact({
-      id: PropTypes.string.isRequired,
-      name: PropTypes.string.isRequired,
-      number: PropTypes.string.isRequired,
-    })
-  ),
-  onDeleteContact: PropTypes.func.isRequired,
 
-};
