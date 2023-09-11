@@ -1,36 +1,34 @@
 import styled from '@emotion/styled';
 
-export const List = styled.ul`
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    width: 420px;
-    padding: 10px;
-    background-color:  #dfeff5;
-    border: 1px solid tomato;
-    border-radius: 5px;
-    list-style: none;
+export const ContactListStyled = styled.ul`
+    padding-left: 0;
 `;
 
-export const Item = styled.li`
+export const ContactItem = styled.li`
     display: flex;
-    align-items: center;
     justify-content: space-between;
-    font-size: 25px;
-    background-color: #fff;
-    border: 1px solid green;
+    align-items: center;
+    font-size: 26px;
     border-radius: 5px;
-    padding: 8px;
-    margin-bottom: 7px;
-
+    background: #74a4c2;
+    box-shadow: 1px 1px 5px gray;
+    padding: 10px 20px;
+    margin-bottom: 15px;
+    border: 1px solid gray;
 `;
 
-export const Button = styled.button`
-    padding: 3px 9px;
-    background-color: #e8e8e8;
-    color: #e88606;
-    border-radius: 5px;
-    border: 1px solid green;
-    cursor: pointer;
+export const ContactData = styled.p`
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin: 0;
 `;
 
+export const ButtonDelete = styled.button`
+    border-radius: 4px;
+    height: 35px;
+    padding: 0 5px;
+    background: #62869d;
+    color: white;
+    font-size: 18px;
+`;
