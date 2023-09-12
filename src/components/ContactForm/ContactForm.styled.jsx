@@ -26,7 +26,7 @@ export const FormLabel = styled.label`
     margin-bottom: 15px;
 `;
 
-export const Button = styled.button`
+export const FormButton = styled.button`
     margin: 0 auto;
     padding: 7px 10px;
     border-radius: 6px;
