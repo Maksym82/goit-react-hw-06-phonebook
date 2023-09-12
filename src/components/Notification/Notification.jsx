@@ -1,4 +1,4 @@
-
+import { Message } from './Notification.styled';
 
 
 export function Notification() {
