@@ -40,13 +40,13 @@ export const contactsSlice = createSlice({
 });
 
 const persistConfig = {
-    key: 'contacts',
-    storage,
+  key: 'contacts',
+  storage,
 };
 
 export const contactReducer = persistReducer(
-    persistConfig,
-    contactsSlice.reducer
+  persistConfig,
+  contactsSlice.reducer
 );
 
 export const { addContact, deleteContact } = contactsSlice.actions;
