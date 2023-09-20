@@ -15,7 +15,7 @@ export function ContactForm() {
         const form = evt.target;
         const { name, number } = form.elements;
     
-        if (contacts.some(contact => contact.name === name.value)) {
+        if (contacts.toLowerCase().some(contact => contact.name === name.value.toLowerCase())) {
           Notiflix.Report.warning(
             'Warning',
             `${name.value} is already in contacts.`
